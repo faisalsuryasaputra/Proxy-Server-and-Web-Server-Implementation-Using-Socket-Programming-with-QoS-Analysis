@@ -95,3 +95,9 @@ Pilih menu 4 untuk simulasi Multithreading Client.
 Proyek ini dikerjakan oleh:
 Faisal Surya Saputra
 Informatics - Telkom University
+
+Parameter,Rumus Implementasi
+Throughput,(Total Bytes Received * 8) / Total Duration (bps)
+Packet Loss,(Lost Packets / Total Packets Sent) * 100 (%)
+Latency,Receive Time - Send Time (ms)
+Jitter,Rata-rata selisih absolut antar latensi berturut-turut
