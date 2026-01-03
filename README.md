@@ -46,17 +46,7 @@ QoS Measurement: Mengirim paket burst via UDP untuk menghitung metrik jaringan s
 Multi-Client Simulation: Mensimulasikan beban trafik dengan menjalankan 5 thread klien secara simultan.
 Logging: Menyimpan hasil analisis QoS ke file qos_result.csv.
 
-📂 Struktur Direktori
-Plaintext
-```
-.
-├── server.py        # Script Web Server (TCP Port 8000, UDP Port 9000)
-├── proxy.py         # Script Proxy Server (TCP Port 8080, UDP Port 9090)
-├── client.py        # Script Client untuk testing dan QoS analysis
-├── qos_result.csv   # Log otomatis hasil pengujian QoS
-└── www/             # Folder root untuk file HTML
-    └── index.html   # File sampel web
-```
+
 🚀 Cara Menjalankan
 Prasyarat
 Pastikan Python 3.x sudah terinstal. Tidak ada library eksternal yang dibutuhkan (hanya standard library).
@@ -67,18 +57,21 @@ Buat folder www dan file dummy HTML agar server tidak error.
 Bash
 mkdir www
 echo "<h1>Hello from Socket Server!</h1>" > www/index.html
+
 Langkah 2: Jalankan Web Server
 Buka terminal pertama:
 
 Bash
 python server.py
 # Output: Web Server berjalan di port 8000 (TCP) dan 9000 (UDP)
+
 Langkah 3: Jalankan Proxy Server
 Buka terminal kedua (pastikan konfigurasi IP di script sesuai, default 127.0.0.1):
 
 Bash
 python proxy.py
 # Output: Proxy berjalan di port 8080 (TCP) dan 9090 (UDP)
+
 Langkah 4: Jalankan Client
 Buka terminal ketiga:
 
