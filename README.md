@@ -80,6 +80,3 @@ Use the interactive menu to perform tests:
 3. Select Option 4 for Multithreading Client simulation.
 
 ```
-👥 Credits
-This project was developed by: Faisal Surya Saputra Informatics - Telkom University
-
