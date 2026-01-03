@@ -34,23 +34,18 @@ graph LR
 Dual Protocol Support: Menjalankan layanan TCP (HTTP File Server) dan UDP (Echo Server) secara paralel menggunakan threading.
 HTTP Handling: Melayani request GET standar dan mengambil file dari direktori lokal ./www.
 Security: Pencegahan dasar terhadap Directory Traversal.
-2. Proxy Server (proxy.py)
+
+3. Proxy Server (proxy.py)
 In-Memory Caching: Menyimpan respons HTTP di RAM. Jika request berulang diterima, Proxy langsung membalas dari cache tanpa menghubungi Web Server (mengurangi latensi).
 Transparent Forwarding: Meneruskan paket UDP secara transparan untuk pengujian QoS.
 Concurrency: Menggunakan threading untuk menangani banyak klien secara bersamaan tanpa blocking.
-3. Client & QoS Tester (client.py)
+
+5. Client & QoS Tester (client.py)
 Interactive Menu: Antarmuka CLI untuk memilih mode pengujian.
 QoS Measurement: Mengirim paket burst via UDP untuk menghitung metrik jaringan secara real-time.
 Multi-Client Simulation: Mensimulasikan beban trafik dengan menjalankan 5 thread klien secara simultan.
 Logging: Menyimpan hasil analisis QoS ke file qos_result.csv.
-📊 Metrik QoS
-Metrik dihitung menggunakan rumus berikut dalam kode:
 
-Parameter	Rumus Implementasi
-Throughput	(Total Bytes Received * 8) / Total Duration (bps)
-Packet Loss	(Lost Packets / Total Packets Sent) * 100 (%)
-Latency	Receive Time - Send Time (ms)
-Jitter	Rata-rata selisih absolut antar latensi berturut-turut
 📂 Struktur Direktori
 Plaintext
 .
@@ -88,16 +83,11 @@ Buka terminal ketiga:
 Bash
 python client.py
 Gunakan menu interaktif untuk melakukan pengujian:
-Pilih menu 2 untuk tes Request HTTP (cek apakah Cache Hit/Miss di log Proxy).
-Pilih menu 3 untuk tes QoS UDP.
-Pilih menu 4 untuk simulasi Multithreading Client.
+1. Pilih menu 2 untuk tes Request HTTP (cek apakah Cache Hit/Miss di log Proxy).
+2. Pilih menu 3 untuk tes QoS UDP.
+3. Pilih menu 4 untuk simulasi Multithreading Client.
+
 👥 Kredit
 Proyek ini dikerjakan oleh:
-Faisal Surya Saputra
-Informatics - Telkom University
+Faisal Surya Saputra Informatics - Telkom University
 
-Parameter,Rumus Implementasi
-Throughput,(Total Bytes Received * 8) / Total Duration (bps)
-Packet Loss,(Lost Packets / Total Packets Sent) * 100 (%)
-Latency,Receive Time - Send Time (ms)
-Jitter,Rata-rata selisih absolut antar latensi berturut-turut
