@@ -28,6 +28,7 @@ graph LR
     Proxy -- Save to Cache --> Proxy
     Proxy -- Response --> User
 
+```
 🛠️ Fitur & Implementasi Teknis
 1. Web Server (server.py)
 Dual Protocol Support: Menjalankan layanan TCP (HTTP File Server) dan UDP (Echo Server) secara paralel menggunakan threading.
