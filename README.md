@@ -48,6 +48,7 @@ Logging: Menyimpan hasil analisis QoS ke file qos_result.csv.
 
 📂 Struktur Direktori
 Plaintext
+```
 .
 ├── server.py        # Script Web Server (TCP Port 8000, UDP Port 9000)
 ├── proxy.py         # Script Proxy Server (TCP Port 8080, UDP Port 9090)
@@ -55,6 +56,7 @@ Plaintext
 ├── qos_result.csv   # Log otomatis hasil pengujian QoS
 └── www/             # Folder root untuk file HTML
     └── index.html   # File sampel web
+```
 🚀 Cara Menjalankan
 Prasyarat
 Pastikan Python 3.x sudah terinstal. Tidak ada library eksternal yang dibutuhkan (hanya standard library).
