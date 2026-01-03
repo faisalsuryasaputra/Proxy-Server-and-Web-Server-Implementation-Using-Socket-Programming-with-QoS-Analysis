@@ -46,7 +46,7 @@ QoS Measurement: Mengirim paket burst via UDP untuk menghitung metrik jaringan s
 Multi-Client Simulation: Mensimulasikan beban trafik dengan menjalankan 5 thread klien secara simultan.
 Logging: Menyimpan hasil analisis QoS ke file qos_result.csv.
 
-
+```
 🚀 Cara Menjalankan
 Prasyarat
 Pastikan Python 3.x sudah terinstal. Tidak ada library eksternal yang dibutuhkan (hanya standard library).
@@ -81,7 +81,7 @@ Gunakan menu interaktif untuk melakukan pengujian:
 1. Pilih menu 2 untuk tes Request HTTP (cek apakah Cache Hit/Miss di log Proxy).
 2. Pilih menu 3 untuk tes QoS UDP.
 3. Pilih menu 4 untuk simulasi Multithreading Client.
-
+```
 👥 Kredit
 Proyek ini dikerjakan oleh:
 Faisal Surya Saputra Informatics - Telkom University
