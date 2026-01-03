@@ -4,20 +4,20 @@
 ![Networking](https://img.shields.io/badge/Socket-Programming-orange)
 ![Status](https://img.shields.io/badge/Status-Final%20Project-success)
 
-> **Computer Networking Final Project:** Implementasi Web Server dan Proxy Server menggunakan Python Socket Programming yang dilengkapi dengan mekanisme *Caching*, *Multi-threading*, serta modul analisis *Quality of Service* (QoS).
+> **Computer Networking Final Project:** Implementation of a Web Server and Proxy Server using Python Socket Programming, featuring *Caching*, *Multi-threading*, and a *Quality of Service* (QoS) analysis module.
 
-## 📌 Deskripsi Proyek
-Proyek ini membangun simulasi jaringan sederhana yang terdiri dari **Client**, **Proxy Server**, dan **Web Server**. Tujuan utamanya adalah mendemonstrasikan bagaimana protokol TCP (untuk HTTP) dan UDP bekerja di level socket, serta bagaimana Proxy menangani *request forwarding* dan *caching* untuk efisiensi jaringan.
+## 📌 Project Overview
+This project constructs a simple network simulation consisting of a **Client**, **Proxy Server**, and **Web Server**. The primary objective is to demonstrate how TCP (for HTTP) and UDP protocols operate at the socket level, and how a Proxy handles *request forwarding* and *caching* to improve network efficiency.
 
-Selain itu, sistem ini memiliki fitur **QoS Analyzer** untuk mengukur kualitas jaringan berdasarkan parameter:
-* **Throughput** (Kecepatan transfer data)
-* **Latency / RTT** (Waktu tunda)
-* **Jitter** (Variasi kedatangan paket)
-* **Packet Loss** (Persentase paket hilang)
+Additionally, the system includes a **QoS Analyzer** to measure network quality based on the following parameters:
+* **Throughput** (Data transfer speed)
+* **Latency / RTT** (Round Trip Time)
+* **Jitter** (Packet arrival variance)
+* **Packet Loss** (Percentage of lost packets)
 
-## 🏗️ Arsitektur Sistem
+## 🏗️ System Architecture
 
-Alur komunikasi data antar komponen adalah sebagai berikut:
+The data communication flow between components is as follows:
 
 ```mermaid
 graph LR
@@ -27,62 +27,59 @@ graph LR
     Web -- Response --> Proxy
     Proxy -- Save to Cache --> Proxy
     Proxy -- Response --> User
-
 ```
-🛠️ Fitur & Implementasi Teknis
+🛠️ Features & Technical Implementation
 1. Web Server (server.py)
-Dual Protocol Support: Menjalankan layanan TCP (HTTP File Server) dan UDP (Echo Server) secara paralel menggunakan threading.
-HTTP Handling: Melayani request GET standar dan mengambil file dari direktori lokal ./www.
-Security: Pencegahan dasar terhadap Directory Traversal.
-
-3. Proxy Server (proxy.py)
-In-Memory Caching: Menyimpan respons HTTP di RAM. Jika request berulang diterima, Proxy langsung membalas dari cache tanpa menghubungi Web Server (mengurangi latensi).
-Transparent Forwarding: Meneruskan paket UDP secara transparan untuk pengujian QoS.
-Concurrency: Menggunakan threading untuk menangani banyak klien secara bersamaan tanpa blocking.
-
-5. Client & QoS Tester (client.py)
-Interactive Menu: Antarmuka CLI untuk memilih mode pengujian.
-QoS Measurement: Mengirim paket burst via UDP untuk menghitung metrik jaringan secara real-time.
-Multi-Client Simulation: Mensimulasikan beban trafik dengan menjalankan 5 thread klien secara simultan.
-Logging: Menyimpan hasil analisis QoS ke file qos_result.csv.
+Dual Protocol Support: Runs TCP services (HTTP File Server) and UDP services (Echo Server) in parallel using threading.
+HTTP Handling: Serves standard GET requests and fetches files from the local ./www directory.
+Security: Basic prevention against Directory Traversal attacks.
+2. Proxy Server (proxy.py)
+In-Memory Caching: Stores HTTP responses in RAM. If a repeated request is received, the Proxy replies directly from the cache without contacting the Web Server (significantly reducing latency).
+Transparent Forwarding: Transparents forwards UDP packets to facilitate QoS testing.
+Concurrency: Utilizes threading to handle multiple clients simultaneously without blocking.
+3. Client & QoS Tester (client.py)
+Interactive Menu: A CLI interface for selecting testing modes.
+QoS Measurement: Sends burst packets via UDP to calculate real-time network metrics.
+Multi-Client Simulation: Simulates traffic load by running 5 client threads simultaneously.
+Logging: Saves the QoS analysis results to qos_result.csv.
 
 ```
-🚀 Cara Menjalankan
-Prasyarat
-Pastikan Python 3.x sudah terinstal. Tidak ada library eksternal yang dibutuhkan (hanya standard library).
+🚀 How to Run
+Prerequisites
+Ensure Python 3.x is installed. No external libraries are required (uses standard libraries only).
 
-Langkah 1: Setup Konten Web
-Buat folder www dan file dummy HTML agar server tidak error.
+Step 1: Setup Web Content
+Create a www folder and a dummy HTML file to prevent server errors.
 
 Bash
 mkdir www
 echo "<h1>Hello from Socket Server!</h1>" > www/index.html
 
-Langkah 2: Jalankan Web Server
-Buka terminal pertama:
+Step 2: Run Web Server
+Open the first terminal:
 
 Bash
 python server.py
-# Output: Web Server berjalan di port 8000 (TCP) dan 9000 (UDP)
+# Output: Web Server running on port 8000 (TCP) and 9000 (UDP)
 
-Langkah 3: Jalankan Proxy Server
-Buka terminal kedua (pastikan konfigurasi IP di script sesuai, default 127.0.0.1):
+Step 3: Run Proxy Server
+Open the second terminal (ensure IP configuration in the script matches your setup, default is 127.0.0.1):
 
 Bash
 python proxy.py
-# Output: Proxy berjalan di port 8080 (TCP) dan 9090 (UDP)
+# Output: Proxy running on port 8080 (TCP) and 9090 (UDP)
 
-Langkah 4: Jalankan Client
-Buka terminal ketiga:
+Step 4: Run Client
+Open the third terminal:
 
 Bash
 python client.py
-Gunakan menu interaktif untuk melakukan pengujian:
-1. Pilih menu 2 untuk tes Request HTTP (cek apakah Cache Hit/Miss di log Proxy).
-2. Pilih menu 3 untuk tes QoS UDP.
-3. Pilih menu 4 untuk simulasi Multithreading Client.
+Use the interactive menu to perform tests:
+1. Select Option 2 for HTTP Request testing (Check Proxy logs for Cache Hit/Miss).
+2. Select Option 3 for UDP QoS testing.
+3. Select Option 4 for Multithreading Client simulation.
+
 ```
-👥 Kredit
-Proyek ini dikerjakan oleh:
-Faisal Surya Saputra Informatics - Telkom University
+👥 Credits
+This project was developed by: Faisal Surya Saputra Informatics - Telkom University
 
